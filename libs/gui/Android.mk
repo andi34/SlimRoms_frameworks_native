@@ -39,6 +39,10 @@ LOCAL_SHARED_LIBRARIES := \
 	libutils \
 	liblog
 
+ifeq ($(TARGET_FORCE_SCREENSHOT_CPU_PATH), true)
+	LOCAL_CFLAGS += -DFORCE_SCREENSHOT_CPU_PATH
+endif
+
 # Executed only on QCOM BSPs
 ifeq ($(TARGET_USES_QCOM_BSP),true)
 ifneq ($(TARGET_QCOM_DISPLAY_VARIANT),)
